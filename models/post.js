@@ -10,7 +10,7 @@ var PostSchema = new Schema(
         category: {type:String, required: true},
         tags: [{type:String}],
         article: {type:String, required:true },
-        imageUrl: {type: String, required: true, default:''},
+        imageUrl: {type: String, default:''},
         published: {type:Boolean, default: false}
     }
 );
