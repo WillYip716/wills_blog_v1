@@ -8,7 +8,7 @@ router.get('/posts',api_controller.post_list);
 
 router.get('/post/:id',api_controller.single_post);
 
-router.get('/category', api_controller.category_posts);
+router.get('/categories/:category', api_controller.category_posts);
 
 
 module.exports = router;
