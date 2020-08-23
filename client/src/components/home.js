@@ -13,9 +13,9 @@ class Home extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('localhost:5000/posts')
+        axios.get('/posts')
           .then(res => {
-            const posts = res.data.filter((post) => post.published);
+            const posts = res.data;
             this.setState((state) => ({
                 loading: false,
                 posts: posts
@@ -32,6 +32,7 @@ class Home extends React.Component{
                     {this.state.posts.map((post) => (
                         <Link to={`/post/${post._id}`} key={post._id}>
                             <h1>{post.title}</h1>
+                            <p>{post.description}</p>
                             <p>{post.timestamp}</p>
                         </Link>
                     ))}
