@@ -1,24 +1,23 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
-function Navbar(){
+
+function NavbarComp(){
     
     return(
-        <ul>
-            <li>
-                <Link to='/'>Home</Link>
-            </li>
-            <li>
-                <Link to='/category/sports'>Sports</Link>
-            </li>
-            <li>
-                <Link to='/category/lifestyle'>Lifestyle</Link>
-            </li>
-            <li>
-                <Link to='/category/economics'>Economics</Link>
-            </li>
-        </ul>
-    )   
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                <Nav.Link href="/category/sports">Sports</Nav.Link>
+                <Nav.Link href="/category/lifestyle">Lifestyle</Nav.Link>
+                <Nav.Link href="/category/economics">Economics</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    )
 }
 
-export default Navbar;
+export default NavbarComp;
