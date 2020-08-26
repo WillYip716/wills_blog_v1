@@ -34,9 +34,7 @@ class Post extends React.Component{
                     <p>{this.state.posts.timestamp}</p> 
                   </div>
                   
-            }
-            
-                
+            } 
             </div>
         )
     }
