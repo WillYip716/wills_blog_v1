@@ -8,7 +8,6 @@ function NavbarComp(){
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">Will's Blog</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="/category/sports">Sports</Nav.Link>

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-
+import Moment from 'moment';
 
 class Post extends React.Component{
 
@@ -46,8 +46,8 @@ class Post extends React.Component{
                     {this.state.posts.map((post) => (
                         <Link to={`/post/${post._id}`} key={post._id}>
                             <h1>{post.title}</h1>
-                            <p>{post.description}</p>
-                            <p>{post.timestamp}</p>
+                            <p>{Moment(post.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                            <p>{post.description}</p>  
                         </Link>
                     ))}
                 </div>     
