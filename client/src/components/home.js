@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../static/1.jpeg";
 import img2 from "../static/2.jpeg";
 import img3 from "../static/3.jpeg";
@@ -42,20 +41,19 @@ class Home extends React.Component{
         let items = [];
         for (var i = 0; i <l;i++) {
             items.push(
-            <Carousel.Item key={this.state.posts[i]._id}>
+            <div className="card mb-8" key={this.state.posts[i]._id}>
                 <img
-                    className="d-block w-100"
+                    className="card-img-top"
                     src={images[i]}
                     alt="slide"
                 />
-                <Carousel.Caption>
-                <Link to={`/post/${this.state.posts[i]._id}`} >
-                    <h1>{this.state.posts[i].title}</h1>
-                    <p>{this.state.posts[i].description}</p>
-                    <p>{Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
-                </Link>
-                </Carousel.Caption>
-            </Carousel.Item>
+                <div className="card-body">
+                    <h3 class="card-title">{this.state.posts[i].title}</h3>
+                    <p className="card-text">{this.state.posts[i].description}</p>
+                    <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
+                </div>
+                <div className="card-footer text-muted">{Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
+            </div>
             )
         }
         return(
@@ -63,9 +61,10 @@ class Home extends React.Component{
 
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
-                :<Carousel>
+                :<div>
+                    <h2>Latest Posts</h2>
                     {items}
-                </Carousel>
+                </div>  
             }
             </div>
         )
