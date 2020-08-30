@@ -1,6 +1,10 @@
 .carousel {
   width:900px;
-  height:500px;
+  margin: auto;
+}
+
+.centerColumn {
+  width:1240px;
   margin: auto;
 }
 
@@ -10,4 +14,14 @@
       width:auto;
       height:auto;
     }
+}
+
+.footer{
+  bottom: 0px;
+  background-color: #343a40 !important;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  color: white;
 }

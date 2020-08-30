@@ -25,12 +25,12 @@ class Post extends React.Component{
 
     render(){
         return(
-            <div>
+            <div class='centerColumn'>
             {this.state.loading        
                 ? <h1>Post Loading</h1>
                 : <div>
-                    <h1>{this.state.posts.title}</h1>
-                    <p>{Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                    <h1 style={{textAlign:"center"}}>{this.state.posts.title}</h1>
+                    <p style={{textAlign:"center"}}>{Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
                     <p>{unescape(this.state.posts.article)}</p>
                   </div>
                   
