@@ -9,10 +9,10 @@ function NavbarComp(){
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">Will's Blog</Navbar.Brand>
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link href="/category/sports">Sports</Nav.Link>
-                <Nav.Link href="/category/lifestyle">Lifestyle</Nav.Link>
-                <Nav.Link href="/category/economics">Economics</Nav.Link>
+                <Nav className="ml-auto">
+                    <Nav.Link href="/category/sports">Sports</Nav.Link>
+                    <Nav.Link href="/category/lifestyle">Lifestyle</Nav.Link>
+                    <Nav.Link href="/category/economics">Economics</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

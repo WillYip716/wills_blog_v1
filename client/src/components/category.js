@@ -9,17 +9,19 @@ class Post extends React.Component{
         super(props);
         this.state ={
             loading: true,
-            posts: []
+            posts: [],
+            paginpage: 0
         };
     }
 
     componentDidMount() {
         axios.get('/categories/'+this.props.match.params.category)
           .then(res => {
-            const posts = res.data;
+            const posts = res.data.posts;
             this.setState((state) => ({
                 loading: false,
-                posts: posts
+                posts: posts,
+                paginpage: res.data.pages
             }));  
         })
     }

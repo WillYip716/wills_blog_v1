@@ -13,17 +13,19 @@ class Home extends React.Component{
         super(props);
         this.state ={
             loading: true,
-            posts: []
+            posts: [],
+            paginpage: 0
         };
     }
 
     componentDidMount() {
         axios.get('/posts')
           .then(res => {
-            const posts = res.data;
+            const posts = res.data.posts;
             this.setState((state) => ({
                 loading: false,
-                posts: posts
+                posts: posts,
+                paginpage: res.data.pages
             }));  
           })
     }
@@ -52,7 +54,7 @@ class Home extends React.Component{
                     <p className="card-text">{this.state.posts[i].description}</p>
                     <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
                 </div>
-                <div className="card-footer text-muted">{Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
+                <div className="card-footer text-muted">Posted on: {Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
             </div>
             )
         }
