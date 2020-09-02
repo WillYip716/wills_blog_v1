@@ -1,4 +1,6 @@
-
+.container{
+  min-height: 700px;
+}
 
 @media (max-width: 760px) {
     .carousel {
@@ -8,7 +10,7 @@
 }
 
 footer{
-
+  
   background-color: #343a40 !important;
   margin-top: 2rem!important;
   text-align: center;

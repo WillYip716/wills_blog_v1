@@ -5,6 +5,7 @@ import img1 from "../static/1.jpeg";
 import img2 from "../static/2.jpeg";
 import img3 from "../static/3.jpeg";
 import Moment from 'moment';
+import Pagination from './pagination';
 
 
 class Home extends React.Component{
@@ -50,7 +51,7 @@ class Home extends React.Component{
                     alt="slide"
                 />
                 <div className="card-body">
-                    <h3 class="card-title">{this.state.posts[i].title}</h3>
+                    <h3 className="card-title">{this.state.posts[i].title}</h3>
                     <p className="card-text">{this.state.posts[i].description}</p>
                     <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
                 </div>
@@ -68,6 +69,8 @@ class Home extends React.Component{
                     {items}
                 </div>  
             }
+
+                <Pagination/>
             </div>
         )
     }  
