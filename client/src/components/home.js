@@ -26,7 +26,7 @@ class Home extends React.Component{
             this.setState((state) => ({
                 loading: false,
                 posts: posts,
-                paginpage: res.data.pages
+                paginpage: parseInt(res.data.pages)
             }));  
           })
     }
@@ -61,7 +61,6 @@ class Home extends React.Component{
         }
         return(
             <div>
-
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
                 :<div>
@@ -69,8 +68,7 @@ class Home extends React.Component{
                     {items}
                 </div>  
             }
-
-                <Pagination/>
+                <Pagination pages={this.state.paginpage} category={"/"} page={this.props.match.params.page ? parseInt(this.props.match.params.category): 1}/>
             </div>
         )
     }  

@@ -3,40 +3,40 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 class Pagination extends React.Component {
-    //this.props.name
-
-    constructor(props){
-        super(props);
-        this.state ={
-            loading: true,
-            title: "",
-            article: "",
-            timestamp: "",
-            published: ""
-        };
-    }
 
 
     render(){
+        var items= [];
+        var urlHolder;
+        for (var i = 1; i <= this.props.pages;i++) {
+            if(i !== this.props.page){
+                urlHolder = this.props.category + "?page=" + i;
+            }
+            else{
+                urlHolder = "";
+            }
+            items.push(
+                <Dropdown.Item key={"pageNUm"+this.props.page} href={urlHolder}>{i}</Dropdown.Item>
+            )
+        }
+
+        var prevURL = (this.props.page === 1) ? "#": this.props.category + "?page=" + (i-1);
+        var nextURL = (this.props.page === this.props.pages) ? "#": this.props.category + "?page=" + (i+1);
+
         return (
 
             <div className="pagenav">
-                <div style={{margin:"auto"}}>
-                    <a className="prev">{'<'}</a>
-                    <Dropdown>
+                    <a className="pagenavcomp" href={prevURL}>{'<'}</a>
+                    <Dropdown className="pagenavcomp">
                         <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
-                            1
+                            {this.props.page}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">2</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">3</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">4</Dropdown.Item>
+                            {items}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <p style={{display:"inline-block"}}>{"/" + "10"}</p>
-                    <a className="next">{'>'}</a>
-                </div>  
-                
+                    <p className="pagenavcomp">{"/ "+this.props.pages}</p>
+                    <a className="pagenavcomp" href={nextURL}>{'>'}</a> 
             </div>  
     
         )

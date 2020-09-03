@@ -28,14 +28,22 @@ footer{
   display:none;
 }
 
-.prev{
+.pagenavcomp{
   display: inline-block;
+  width: 40px;
+  height: 30px;
+  text-align: center;
 }
 
-.next{
-  display: inline-block;
+#dropdown-basic{
+  border: solid .5px black;
 }
 
-.dropdown{
-  display: inline-block;
+.pagenav{
+  margin:auto;
+  width: 160px;
+}
+
+.dropdown-item:hover{
+  background-color: lightblue;
 }

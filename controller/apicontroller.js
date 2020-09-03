@@ -1,12 +1,6 @@
 var Post = require('../models/post');
 
 exports.post_list = function(req,res,next){
-    /*Post.find({}).exec(
-        function(err,result){
-            if(err){return next(err);}
-            res.json(result);
-        }
-    )*/
 
     var pageNo = parseInt(req.query.page);
     var size = 10;
@@ -46,12 +40,7 @@ exports.single_post = function(req,res,next){
 };
 
 exports.category_posts = function(req,res,next){
-    /*Post.find({ 'category': req.params.category }).exec(
-        function(err,result){
-            if(err){return next(err);}
-            res.json(result);
-        }
-    )*/
+
     var pageNo = parseInt(req.query.page);
     var size = 10;
     var query = {}

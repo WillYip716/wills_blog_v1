@@ -40,26 +40,6 @@ class Post extends React.Component{
         }
     }
 
-    /*render(){
-        return(
-            <div className="centerColumn">
-            {this.state.loading        
-                ? <h1>Hello i am loading</h1>
-                : <div>
-                    {this.state.posts.map((post) => (
-                        <Link to={`/post/${post._id}`} key={post._id}>
-                            <h1>{post.title}</h1>
-                            <p>Posted on: {Moment(post.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
-                            <p>{post.description}</p>  
-                        </Link>
-                    ))}
-                </div>     
-            }
-            
-                
-            </div>
-        )
-    }*/
 
     render(){
         let l = this.state.posts.length;
