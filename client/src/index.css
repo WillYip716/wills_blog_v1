@@ -23,3 +23,19 @@ footer{
   margin-top:1.5rem!important;
   margin-bottom:1.5rem!important;
 }
+
+.dropdown-toggle::after{
+  display:none;
+}
+
+.prev{
+  display: inline-block;
+}
+
+.next{
+  display: inline-block;
+}
+
+.dropdown{
+  display: inline-block;
+}
