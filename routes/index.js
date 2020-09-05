@@ -10,5 +10,7 @@ router.get('/post/:id',api_controller.single_post);
 
 router.get('/categories/:category', api_controller.category_posts);
 
+router.get('/search', api_controller.category_posts);
+
 
 module.exports = router;

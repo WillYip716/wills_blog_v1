@@ -20,8 +20,8 @@ class Pagination extends React.Component {
             )
         }
 
-        var prevURL = (this.props.page === 1) ? "#": this.props.category + "?page=" + (i-1);
-        var nextURL = (this.props.page === this.props.pages) ? "#": this.props.category + "?page=" + (i+1);
+        var prevURL = (this.props.page === 1) ? "#!": this.props.category + "?page=" + (i-1);
+        var nextURL = (this.props.page === this.props.pages) ? "#!": this.props.category + "?page=" + (i+1);
 
         return (
 
