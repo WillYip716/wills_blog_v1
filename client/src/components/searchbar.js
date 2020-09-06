@@ -30,7 +30,7 @@ class SearchBar extends React.Component{
                 
                 <input type="text" value={this.state.value} onChange={this.handleChange} />        
                 
-                <input type="submit" value="Search" />
+                <input type="submit" value="Go" />
             </form>
         )
     }  

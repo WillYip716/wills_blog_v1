@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Moment from 'moment';
+import Pagination from './pagination';
+const queryString = require('query-string');
 
 class Post extends React.Component{
 
@@ -10,37 +12,50 @@ class Post extends React.Component{
         this.state ={
             loading: true,
             posts: [],
-            paginpage: 0
+            paginpage: 0,
+            currentPage: 1
         };
     }
 
     componentDidMount() {
-        var queryVar="";
-        if(this.props.match.params.page){
-            queryVar = "?page=" + this.props.match.params.page;
+        var params = queryString.parse(this.props.location.search);
+        var queryVar = "";
+        var stateCurrent = 1;
+        if(params.page){
+            queryVar = "?page="+params.page;
+            stateCurrent=params.page;
         }
         axios.get('/categories/'+this.props.match.params.category + queryVar )
-          .then(res => {
+        .then(res => {
             const posts = res.data.posts;
             this.setState((state) => ({
                 loading: false,
                 posts: posts,
-                paginpage: res.data.pages
+                paginpage: res.data.pages,
+                currentPage: stateCurrent
             }));  
         })
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.category !== prevProps.match.params.category) {
-            axios.get('/categories/'+this.props.match.params.category)
+            var params = queryString.parse(this.props.location.search);
+            var queryVar = "";
+            var stateCurrent = 1;
+            if(params.page){
+                queryVar = "?page="+params.page;
+                stateCurrent=params.page;
+            }
+            axios.get('/categories/'+this.props.match.params.category + queryVar )
             .then(res => {
                 const posts = res.data.posts;
-              this.setState((state) => ({
+                this.setState((state) => ({
                     loading: false,
                     posts: posts,
-                    paginpage: res.data.pages
-              }));  
-          })
+                    paginpage: res.data.pages,
+                    currentPage: stateCurrent
+                }));  
+            })
         }
     }
 
@@ -49,13 +64,12 @@ class Post extends React.Component{
         let l = this.state.posts.length;
         Moment.locale('en');
 
-
         let items = [];
         for (var i = 0; i <l;i++) {
             items.push(
             <div className="card mb-8" key={this.state.posts[i]._id}>
                 <div className="card-body">
-                    <h3 class="card-title">{this.state.posts[i].title}</h3>
+                    <h3 className="card-title">{this.state.posts[i].title}</h3>
                     <p className="card-text">{this.state.posts[i].description}</p>
                     <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
                 </div>
@@ -72,6 +86,10 @@ class Post extends React.Component{
                     <h2>{this.props.match.params.category}</h2>
                     {items}
                 </div>  
+            }
+            {parseInt(this.state.paginpage)>1 ? 
+                <Pagination pages={parseInt(this.state.paginpage)} category={"/category/" + this.props.match.params.category +"?"} page={parseInt(this.state.currentPage)}/> 
+                : ""
             }
             </div>
         )

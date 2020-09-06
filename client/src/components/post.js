@@ -25,7 +25,7 @@ class Post extends React.Component{
 
     render(){
         return(
-            <div class='centerColumn'>
+            <div className='centerColumn'>
             {this.state.loading        
                 ? <h1>Post Loading</h1>
                 : <div>

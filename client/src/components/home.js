@@ -6,6 +6,7 @@ import img2 from "../static/2.jpeg";
 import img3 from "../static/3.jpeg";
 import Moment from 'moment';
 import Pagination from './pagination';
+const queryString = require('query-string');
 
 
 class Home extends React.Component{
@@ -15,24 +16,29 @@ class Home extends React.Component{
         this.state ={
             loading: true,
             posts: [],
-            paginpage: 0
+            paginpage: 0,
+            currentPage: 1
         };
     }
 
     componentDidMount() {
-        var queryVar="";
-        if(this.props.match.params.page){
-            queryVar = "page=" + this.props.match.params.page;
+        var params = queryString.parse(this.props.location.search);
+        var queryVar = "";
+        var stateCurrent = 1;
+        if(params.page){
+            queryVar = "?page="+params.page;
+            stateCurrent=params.page;
         }
         axios.get('/posts'+queryVar)
-          .then(res => {
+        .then(res => {
             const posts = res.data.posts;
             this.setState((state) => ({
                 loading: false,
                 posts: posts,
-                paginpage: parseInt(res.data.pages)
+                paginpage: parseInt(res.data.pages),
+                currentPage: stateCurrent
             }));  
-          })
+        })
     }
 
     render(){
@@ -72,7 +78,11 @@ class Home extends React.Component{
                     {items}
                 </div>  
             }
-                <Pagination pages={this.state.paginpage} category={"/"} page={this.props.match.params.page ? parseInt(this.props.match.params.category): 1}/>
+            {parseInt(this.state.paginpage)>1 ? 
+                <Pagination pages={parseInt(this.state.paginpage)} category={"/?"} page={parseInt(this.state.currentPage)}/> 
+                : ""
+            }
+                
             </div>
         )
     }  
