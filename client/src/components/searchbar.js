@@ -1,10 +1,11 @@
 import React from 'react'
+import { Redirect} from "react-router";
 
 class SearchBar extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {value: '',redirect:false};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -14,12 +15,15 @@ class SearchBar extends React.Component{
     }
     
     handleSubmit(event) {
-        this.props.history.push('/search?keyword='+this.state.value);
-        event.preventDefault();
+        this.setState({redirect: true});
     }
 
 
     render(){
+        if (this.state.redirect === true) {
+            return <Redirect to={'/search?keyword='+this.state.value} />
+        }
+
         
         return(
             <form onSubmit={this.handleSubmit}>

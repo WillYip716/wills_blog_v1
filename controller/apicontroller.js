@@ -12,13 +12,13 @@ exports.post_list = function(req,res,next){
     query.skip = size * (pageNo - 1)
     query.limit = size
     // Find some documents
-    Post.countDocuments({},function(err,totalCount) {
-        if(err) {
+    Post.countDocuments({},function(err1,totalCount) {
+        if(err1) {
             response = {"error" : true,"message" : "Error fetching data"}
         }
-        Post.find({},{},query,function(err,data) {
+        Post.find({},{},query,function(err2,data) {
             // Mongo command to fetch all data from collection.
-            if(err) {
+            if(err2) {
                 response = {"error" : true,"message" : "Error fetching data"};
             } else {
                 var totalPages = Math.ceil(totalCount / size)
@@ -51,13 +51,13 @@ exports.category_posts = function(req,res,next){
     query.skip = size * (pageNo - 1)
     query.limit = size
     // Find some documents
-    Post.countDocuments({},function(err,totalCount) {
-        if(err) {
+    Post.countDocuments({},function(err1,totalCount) {
+        if(err1) {
             response = {"error" : true,"message" : "Error fetching data"}
         }
-        Post.find({'category': req.params.category},{},query,function(err,data) {
+        Post.find({'category': req.params.category},{},query,function(err2,data) {
             // Mongo command to fetch all data from collection.
-            if(err) {
+            if(err2) {
                 response = {"error" : true,"message" : "Error fetching data"};
             } else {
                 var totalPages = Math.ceil(totalCount / size)
@@ -79,13 +79,13 @@ exports.search_keyword = function(req,res,next){
     query.skip = size * (pageNo - 1)
     query.limit = size
     // Find some documents
-    Post.countDocuments({},function(err,totalCount) {
-        if(err) {
+    Post.countDocuments({},function(err1,totalCount) {
+        if(err1) {
             response = {"error" : true,"message" : "Error fetching data"}
         }
-        Post.find({'tags': req.query.keyword},{},query,function(err,data) {
+        Post.find({'tags': req.query.keyword},{},query,function(err2,data) {
             // Mongo command to fetch all data from collection.
-            if(err) {
+            if(err2) {
                 response = {"error" : true,"message" : "Error fetching data"};
             } else {
                 var totalPages = Math.ceil(totalCount / size)

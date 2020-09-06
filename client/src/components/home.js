@@ -20,7 +20,11 @@ class Home extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('/posts')
+        var queryVar="";
+        if(this.props.match.params.page){
+            queryVar = "page=" + this.props.match.params.page;
+        }
+        axios.get('/posts'+queryVar)
           .then(res => {
             const posts = res.data.posts;
             this.setState((state) => ({

@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from './searchbar';
 
-function Sidebar(){
+function Sidebar(props){
 
     return(
         <div className="col-md-4">

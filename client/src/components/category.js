@@ -15,7 +15,11 @@ class Post extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('/categories/'+this.props.match.params.category)
+        var queryVar="";
+        if(this.props.match.params.page){
+            queryVar = "?page=" + this.props.match.params.page;
+        }
+        axios.get('/categories/'+this.props.match.params.category + queryVar )
           .then(res => {
             const posts = res.data.posts;
             this.setState((state) => ({
