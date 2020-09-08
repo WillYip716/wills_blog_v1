@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import img1 from "../static/1.jpeg";
-import img2 from "../static/2.jpeg";
-import img3 from "../static/3.jpeg";
 import Moment from 'moment';
 import Pagination from './pagination';
 const queryString = require('query-string');
@@ -49,15 +46,13 @@ class Home extends React.Component{
             l = 3;
         }
 
-        const images = [img1,img2,img3];
-
         let items = [];
         for (var i = 0; i <l;i++) {
             items.push(
             <div className="card mb-8" key={this.state.posts[i]._id}>
                 <img
                     className="card-img-top"
-                    src={images[i]}
+                    src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.jpeg')}
                     alt="slide"
                 />
                 <div className="card-body">
@@ -74,7 +69,7 @@ class Home extends React.Component{
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
                 :<div>
-                    <h2>Latest Posts</h2>
+                    <h2 style={{textAlign:"center"}}>Latest Posts</h2>
                     {items}
                 </div>  
             }

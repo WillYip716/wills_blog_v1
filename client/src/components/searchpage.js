@@ -54,6 +54,41 @@ class SearchPage extends React.Component{
         }  
     }
 
+
+    componentDidUpdate(prevProps) {
+        var params = queryString.parse(this.props.location.search);
+        if(this.state.keyW !== params.keyword){
+            var queryVar = "";
+            var stateCurrent = 0;
+            var stateKey = "";
+            if(params.keyword){
+                if(params.page){
+                    queryVar = "?keyword="+params.keyword + "&page=" + params.page;
+                    stateKey=params.keyword;
+                    stateCurrent=params.page;
+                }
+                else{
+                    queryVar = "?keyword="+params.keyword;
+                    stateKey=params.keyword;
+                    stateCurrent=1;
+                }
+            }
+            if(queryVar){
+                axios.get('/search'+queryVar)
+                .then(res => {
+                    const posts = res.data.posts;
+                    this.setState((state) => ({
+                        loading: false,
+                        posts: posts,
+                        paginpage: parseInt(res.data.pages),
+                        currentPage: stateCurrent,
+                        keyW: stateKey
+                    }));  
+                })
+            } 
+        }
+    }
+
     render(){
         let l = this.state.posts.length;
         Moment.locale('en');
@@ -63,6 +98,11 @@ class SearchPage extends React.Component{
         for (var i = 0; i <l;i++) {
             items.push(
             <div className="card mb-8" key={this.state.posts[i]._id}>
+                <img
+                    className="card-img-top"
+                    src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.jpeg')}
+                    alt="slide"
+                />
                 <div className="card-body">
                     <h3 className="card-title">{this.state.posts[i].title}</h3>
                     <p className="card-text">{this.state.posts[i].description}</p>
