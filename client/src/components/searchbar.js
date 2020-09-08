@@ -25,7 +25,7 @@ class SearchBar extends React.Component{
         return(
             <form onSubmit={this.handleSubmit}>
                 
-                <input type="text" value={this.state.value} onChange={this.handleChange} />        
+                <input style={{width:"65%"}} type="text" value={this.state.value} onChange={this.handleChange} />        
                 
                 <input type="submit" value="Go" />
             </form>

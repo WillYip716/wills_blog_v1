@@ -30,6 +30,11 @@ class Post extends React.Component{
                 ? <h1>Post Loading</h1>
                 : <div>
                     <h1 style={{textAlign:"center"}}>{this.state.posts.title}</h1>
+                    <img
+                        className="card-img-top"
+                        src={(this.state.posts.imageUrl)?require('../static/'+this.state.posts.imageUrl):require('../static/backup.jpeg')}
+                        alt="slide"
+                    />
                     <p style={{textAlign:"center"}}>Posted on: {Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
                     <p>{unescape(this.state.posts.article)}</p>
                   </div>
