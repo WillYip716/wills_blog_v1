@@ -65,30 +65,39 @@ class Post extends React.Component{
         Moment.locale('en');
 
         let items = [];
-        for (var i = 0; i <l;i++) {
-            items.push(
-            <div className="card mb-8" key={this.state.posts[i]._id}>
-                <img
-                    className="card-img-top"
-                    src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.jpeg')}
-                    alt="slide"
-                />
-                <div className="card-body">
-                    <h3 className="card-title">{this.state.posts[i].title}</h3>
-                    <p className="card-text">{this.state.posts[i].description}</p>
-                    <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
+        if(l){
+            for (var i = 0; i <l;i++) {
+                items.push(
+                <div className="card mb-8" key={this.state.posts[i]._id}>
+                    <Link to={`/post/${this.state.posts[i]._id}`}>
+                        <img
+                            className="card-img-top"
+                            src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.png')}
+                            alt="slide"
+                        />
+                    </Link>
+                    <div className="card-body">
+                        <h3 className="card-title">{this.state.posts[i].title}</h3>
+                        <p className="card-text">{this.state.posts[i].description}</p>
+                        <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
+                    </div>
+                    <div className="card-footer text-muted">Posted on: {Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
                 </div>
-                <div className="card-footer text-muted">Posted on: {Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
-            </div>
-            )
+                )
+            }
         }
+        else{
+            items.push(<h1>This category does not exists...yet</h1>);
+        }
+        
         return(
             <div>
 
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
                 :<div>
-                    <h2 style={{textAlign:"center"}}>{this.props.match.params.category.charAt(0).toUpperCase() + this.props.match.params.category.slice(1)}</h2>
+                    <h1 style={{textAlign:"center"}}>{this.props.match.params.category.charAt(0).toUpperCase() + this.props.match.params.category.slice(1)}</h1>
+                    <hr/>
                     {items}
                 </div>  
             }

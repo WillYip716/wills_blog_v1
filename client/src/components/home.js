@@ -50,11 +50,13 @@ class Home extends React.Component{
         for (var i = 0; i <l;i++) {
             items.push(
             <div className="card mb-8" key={this.state.posts[i]._id}>
-                <img
-                    className="card-img-top"
-                    src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.jpeg')}
-                    alt="slide"
-                />
+                <Link to={`/post/${this.state.posts[i]._id}`}>
+                    <img
+                        className="card-img-top"
+                        src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.png')}
+                        alt="slide"
+                    />
+                </Link>
                 <div className="card-body">
                     <h3 className="card-title">{this.state.posts[i].title}</h3>
                     <p className="card-text">{this.state.posts[i].description}</p>
@@ -69,7 +71,8 @@ class Home extends React.Component{
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
                 :<div>
-                    <h2 style={{textAlign:"center"}}>Latest Posts</h2>
+                    <h1 style={{textAlign:"center"}}>Latest Posts</h1>
+                    <hr/>
                     {items}
                 </div>  
             }

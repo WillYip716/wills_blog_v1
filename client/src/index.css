@@ -51,3 +51,15 @@ footer{
 .col-md-8{
   margin-top: 1.5rem;
 }
+
+img{
+  max-height: 400px;
+}
+
+.card-header{
+  background-color: rgba(0,0,0,.08);
+}
+
+.card-footer{
+  background-color: rgba(0,0,0,.08);
+}
