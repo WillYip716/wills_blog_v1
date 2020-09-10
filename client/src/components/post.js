@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import Moment from 'moment';
+import TagLink from './taglink';
+
 
 class Post extends React.Component{
 
@@ -24,6 +26,7 @@ class Post extends React.Component{
     }
 
     render(){
+        
         return(
             <div className='centerColumn'>
             {this.state.loading        
@@ -39,10 +42,12 @@ class Post extends React.Component{
                     <hr/>
                     <p style={{textAlign:"center"}}>Posted on: {Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
                     <hr/>
-                    <p>{unescape(this.state.posts.article)}</p>
+                    <p className="article">{unescape(this.state.posts.article)}</p>
+                    <hr/>
+                    <TagLink tags={this.state.posts.tags}/>
                   </div>
                   
-            } 
+            }                
             </div>
         )
     }

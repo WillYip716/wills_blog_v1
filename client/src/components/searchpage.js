@@ -129,11 +129,11 @@ class SearchPage extends React.Component{
                     <h1>{this.props.match.params.category}</h1>
                     <hr/>
                     {items}
+                    {parseInt(this.state.paginpage)>1 ? 
+                        <Pagination pages={this.state.paginpage} category={"/search?keyword="+this.state.keyW+"&"} page={parseInt(this.state.currentPage)}/> 
+                        : ""
+                    }
                 </div>  
-            }
-            {parseInt(this.state.paginpage)>1 ? 
-                <Pagination pages={this.state.paginpage} category={"/search?keyword="+this.state.keyW+"&"} page={parseInt(this.state.currentPage)}/> 
-                : ""
             }
             </div>
         )

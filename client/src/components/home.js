@@ -74,13 +74,12 @@ class Home extends React.Component{
                     <h1 style={{textAlign:"center"}}>Latest Posts</h1>
                     <hr/>
                     {items}
-                </div>  
+                    {parseInt(this.state.paginpage)>1 ? 
+                        <Pagination pages={parseInt(this.state.paginpage)} category={"/?"} page={parseInt(this.state.currentPage)}/> 
+                        : ""
+                    }
+                </div>
             }
-            {parseInt(this.state.paginpage)>1 ? 
-                <Pagination pages={parseInt(this.state.paginpage)} category={"/?"} page={parseInt(this.state.currentPage)}/> 
-                : ""
-            }
-                
             </div>
         )
     }  
