@@ -96,7 +96,7 @@ class Post extends React.Component{
             {this.state.loading        
                 ? <h1>Hello i am loading</h1>
                 :<div>
-                    <h1 style={{textAlign:"center"}}>{this.props.match.params.category.charAt(0).toUpperCase() + this.props.match.params.category.slice(1)}</h1>
+                    <h1 style={{textAlign:"center"}}>{this.props.match.params.category.toUpperCase()}</h1>
                     <hr/>
                     {items}
                     {parseInt(this.state.paginpage)>1 ? 
