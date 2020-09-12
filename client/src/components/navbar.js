@@ -10,9 +10,11 @@ function NavbarComp(){
             <Navbar.Brand href="/">Will's Blog</Navbar.Brand>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link href="/category/sports">Sports</Nav.Link>
-                    <Nav.Link href="/category/lifestyle">Lifestyle</Nav.Link>
-                    <Nav.Link href="/category/economics">Economics</Nav.Link>
+                    <Nav.Link href="/category/nba">NBA</Nav.Link>
+                    <Nav.Link href="/category/nfl">NFL</Nav.Link>
+                    <Nav.Link href="/category/tv">TV</Nav.Link>
+                    <Nav.Link href="/category/movies">Movies</Nav.Link>
+                    <Nav.Link href="/category/ramblings">Ramblings</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
