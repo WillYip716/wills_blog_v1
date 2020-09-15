@@ -1,5 +1,7 @@
 .container{
   min-height: 700px;
+  background-color: white;
+  padding-bottom: 3rem;
 }
 
 @media (max-width: 760px) {
@@ -12,7 +14,6 @@
 footer{
   
   background-color: #343a40 !important;
-  margin-top: 2rem!important;
   text-align: center;
   color: white;
   padding-top: 1rem!important;
@@ -20,8 +21,8 @@ footer{
 }
 
 .card{
-  margin-top:2.5rem!important;
-  margin-bottom:2.5rem!important;
+  margin-top:2rem!important;
+  margin-bottom:2rem!important;
   border: 1px solid rgba(0,0,0,.25);
 }
 
@@ -50,7 +51,7 @@ footer{
 }
 
 .col-md-8{
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 img{

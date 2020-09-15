@@ -14,6 +14,7 @@ function NavbarComp(){
                     <Nav.Link href="/category/nfl">NFL</Nav.Link>
                     <Nav.Link href="/category/tv">TV</Nav.Link>
                     <Nav.Link href="/category/movies">Movies</Nav.Link>
+                    <Nav.Link href="/category/gaming">Gaming</Nav.Link>
                     <Nav.Link href="/category/ramblings">Ramblings</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

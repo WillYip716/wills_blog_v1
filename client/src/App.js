@@ -11,7 +11,7 @@ import SearchPage from './components/searchpage';
 
 function App() {
   return (
-    <div>
+    <div style={{backgroundColor:"#EEEEEE"}}>
       <NavbarComp/>
       <div className="container">
         <div className="row">
