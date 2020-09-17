@@ -42,10 +42,6 @@ class Home extends React.Component{
         let l = this.state.posts.length;
         Moment.locale('en');
 
-        if(l > 3){
-            l = 3;
-        }
-
         let items = [];
         for (var i = 0; i <l;i++) {
             items.push(

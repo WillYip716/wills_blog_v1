@@ -23,12 +23,15 @@ class SearchBar extends React.Component{
     render(){
         
         return(
-            <form onSubmit={this.handleSubmit}>
-                
-                <input style={{width:"65%"}} type="text" value={this.state.value} onChange={this.handleChange} placeholder="basketball,movies..."/>        
-                
-                <input type="submit" value="Go" />
-            </form>
+            <div className="card my-4">
+                <h3 className="card-header">Search</h3>
+                <div className="card-body">
+                    <form onSubmit={this.handleSubmit}> 
+                        <input style={{width:"65%"}} type="text" value={this.state.value} onChange={this.handleChange} placeholder="basketball,movies..."/>        
+                        <input type="submit" value="Go" />
+                    </form>
+                </div>
+            </div>
         )
     }  
     
