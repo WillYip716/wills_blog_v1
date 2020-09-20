@@ -108,7 +108,7 @@ class SearchPage extends React.Component{
                     </Link>
                     <div className="card-body">
                         <h3 className="card-title">{this.state.posts[i].title}</h3>
-                        <p className="card-text">{this.state.posts[i].description}</p>
+                        <p className="card-text">{unescape(this.state.posts[i].description)}</p>
                         <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
                     </div>
                     <div className="card-footer text-muted">Posted on: {Moment(this.state.posts[i].timestamp).format('MMMM Do YYYY, h:mm:ss a')}</div>
