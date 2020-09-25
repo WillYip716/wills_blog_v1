@@ -7,8 +7,11 @@ function Spotlight(props){
         <div className="card my-4">
         <h3 className="card-header">Spotlight</h3>
             <div className="card-body">
-                <Link to={`/post/5f6265bc26f3e70cd688e106`}>
-                    <p>NFL 2020 Week 2</p>
+                <Link to={`/post/5f6cfdaa38fcc21304ee6899`}>
+                    <p>NFL 2020 Week 3 Picks</p>
+                </Link>
+                <Link to={`/post/5f6a93514ee5804930706b4d`}>
+                    <p>Magic Minshew</p>
                 </Link>
             </div>
         </div>

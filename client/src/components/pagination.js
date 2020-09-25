@@ -27,7 +27,7 @@ class Pagination extends React.Component {
             <div className="pagenav">
                     {this.props.page === 1 ? 
                          ""
-                        : <a className="pagenavcomp" href={this.props.category + "page=" + (i-1)}>{'<'}</a>
+                        : <a className="pagenavcomp" href={this.props.category + "page=" + (this.props.page-1)}>{'<'}</a>
                     }
                     <Dropdown className="pagenavcomp">
                         <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
@@ -40,7 +40,7 @@ class Pagination extends React.Component {
                     <p className="pagenavcomp">{"/ "+this.props.pages}</p>
                     {this.props.page === this.props.pages ? 
                          ""
-                        : <a className="pagenavcomp" href={this.props.category + "page=" + (i+1)}>{'>'}</a> 
+                        : <a className="pagenavcomp" href={this.props.category + "page=" + (this.props.page+1)}>{'>'}</a> 
                     }
             </div>  
     
