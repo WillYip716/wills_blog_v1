@@ -51,7 +51,7 @@ exports.category_posts = function(req,res,next){
     query.skip = size * (pageNo - 1)
     query.limit = size
     // Find some documents
-    Post.countDocuments({},function(err1,totalCount) {
+    Post.countDocuments({'category': { $regex : new RegExp(req.params.category, "i") }},function(err1,totalCount) {
         if(err1) {
             response = {"error" : true,"message" : "Error fetching data"}
         }
@@ -79,7 +79,7 @@ exports.search_keyword = function(req,res,next){
     query.skip = size * (pageNo - 1)
     query.limit = size
     // Find some documents
-    Post.countDocuments({},function(err1,totalCount) {
+    Post.countDocuments({'tags': { $regex : new RegExp(req.query.keyword, "i") }},function(err1,totalCount) {
         if(err1) {
             response = {"error" : true,"message" : "Error fetching data"}
         }

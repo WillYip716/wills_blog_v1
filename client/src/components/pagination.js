@@ -4,19 +4,27 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 class Pagination extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state ={
+            pages: this.props.pages,
+            page: this.props.page,
+            category: this.props.category,
+        };
+    }
 
     render(){
         var items= [];
         var urlHolder;
-        for (var i = 1; i <= this.props.pages;i++) {
-            if(i !== this.props.page){
-                urlHolder = this.props.category + "page=" + i;
+        for (var i = 1; i <= this.state.pages;i++) {
+            if(i !== this.state.page){
+                urlHolder = this.state.category + "page=" + i;
             }
             else{
                 urlHolder = "";
             }
             items.push(
-                <Dropdown.Item key={"pageNUm"+this.props.page} href={urlHolder}>{i}</Dropdown.Item>
+                <Dropdown.Item key={"pageNUm"+this.state.page} href={urlHolder}>{i}</Dropdown.Item>
             )
         }
 
@@ -25,22 +33,22 @@ class Pagination extends React.Component {
         return (
 
             <div className="pagenav">
-                    {this.props.page === 1 ? 
+                    {this.state.page === 1 ? 
                          ""
-                        : <a className="pagenavcomp" href={this.props.category + "page=" + (this.props.page-1)}>{'<'}</a>
+                        : <a className="pagenavcomp" href={this.state.category + "page=" + (this.state.page-1)}>{'<'}</a>
                     }
                     <Dropdown className="pagenavcomp">
                         <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
-                            {this.props.page}
+                            {this.state.page}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {items}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <p className="pagenavcomp">{"/ "+this.props.pages}</p>
-                    {this.props.page === this.props.pages ? 
+                    <p className="pagenavcomp">{"/ "+this.state.pages}</p>
+                    {this.state.page === this.state.pages ? 
                          ""
-                        : <a className="pagenavcomp" href={this.props.category + "page=" + (this.props.page+1)}>{'>'}</a> 
+                        : <a className="pagenavcomp" href={this.state.category + "page=" + (this.state.page+1)}>{'>'}</a> 
                     }
             </div>  
     
