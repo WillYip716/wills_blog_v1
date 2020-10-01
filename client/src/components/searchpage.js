@@ -107,7 +107,7 @@ class SearchPage extends React.Component{
                         />
                     </Link>
                     <div className="card-body">
-                        <h3 className="card-title">{this.state.posts[i].title}</h3>
+                        <h3 className="card-title">{unescape(this.state.posts[i].title)}</h3>
                         <p className="card-text">{unescape(this.state.posts[i].description)}</p>
                         <Link className="btn btn-primary" to={`/post/${this.state.posts[i]._id}`}>Read More</Link>
                     </div>

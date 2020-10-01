@@ -32,7 +32,7 @@ class Post extends React.Component{
             {this.state.loading        
                 ? <h1>Post Loading</h1>
                 : <div>
-                    <h1 style={{textAlign:"center"}}>{this.state.posts.title}</h1>
+                    <h1 style={{textAlign:"center"}}>{unescape(this.state.posts.title)}</h1>
                     <hr/>
                     <img
                         className="card-img-top"
@@ -40,6 +40,7 @@ class Post extends React.Component{
                         alt="slide"
                     />
                     <hr/>
+                    <h5 style={{textAlign:"center"}}>{unescape(this.state.posts.description)}</h5>
                     <p style={{textAlign:"center"}}>Posted on: {Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
                     <hr/>
                     <p className="article">{unescape(this.state.posts.article)}</p>
