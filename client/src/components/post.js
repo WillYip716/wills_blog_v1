@@ -25,6 +25,19 @@ class Post extends React.Component{
           })
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.match.params.id !== prevProps.match.params.id){
+            axios.get('/post/'+this.props.match.params.id)
+            .then(res => {
+                const posts = res.data;
+                this.setState((state) => ({
+                    loading: false,
+                    posts: posts
+                }));  
+            })
+        }
+    }
+
     render(){
         
         return(
