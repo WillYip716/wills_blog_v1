@@ -52,8 +52,7 @@ class Post extends React.Component{
                         src={(this.state.posts.imageUrl)?require('../static/'+this.state.posts.imageUrl):require('../static/backup.png')}
                         alt="slide"
                     />
-                    <hr/>
-                    <h5 style={{textAlign:"center"}}>{unescape(this.state.posts.description)}</h5>
+                    <h5 style={{textAlign:"center", marginTop:"1rem"}}>{unescape(this.state.posts.description)}</h5>
                     <p style={{textAlign:"center"}}>Posted on: {Moment(this.state.posts.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</p>
                     <hr/>
                     <p className="article">{unescape(this.state.posts.article)}</p>

@@ -78,3 +78,9 @@ img{
   margin-bottom: 3rem;
   white-space: pre-wrap;
 }
+
+.card-img-top{
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  border-bottom-left-radius: calc(.25rem - 1px);
+  border-bottom-right-radius: calc(.25rem - 1px);
+}
