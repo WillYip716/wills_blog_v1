@@ -80,7 +80,10 @@ img{
 }
 
 .card-img-top{
-  border-bottom: 1px solid rgba(0,0,0,.125);
+  margin: auto;
+  display: block;
+  width:auto;
+  height:300px;
   border-bottom-left-radius: calc(.25rem - 1px);
   border-bottom-right-radius: calc(.25rem - 1px);
 }

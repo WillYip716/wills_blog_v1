@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 function Spotlight(props){
 
-    let postCodes = ["5f7530007c8b830f7a8306a2","5f73b08c57b32910291fdbc4","5f767464bdbaed1359ca664c"];
-    let postTitle = ["I Care About Not Caring!","NFL 2020 Week 4 Picks","Burning: A Rich Mystique"];
+    let postCodes = ["5fa0e73f9c47bd31fb4ccb39","5f7530007c8b830f7a8306a2","5f767464bdbaed1359ca664c"];
+    let postTitle = ["Whiplash: Carl Tanner","I Care About Not Caring!","Burning: A Rich Mystique"];
     let items = [];
     for (var i = 0; i <postCodes.length;i++) {
         items.push(
