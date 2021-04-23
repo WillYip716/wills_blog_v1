@@ -87,3 +87,8 @@ img{
   border-bottom-left-radius: calc(.25rem - 1px);
   border-bottom-right-radius: calc(.25rem - 1px);
 }
+
+.taglink{
+  display: inline-block;
+  margin-bottom: 2rem;
+}

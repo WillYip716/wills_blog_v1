@@ -87,7 +87,7 @@ class Post extends React.Component{
             }
         }
         else{
-            items.push(<h1>This category does not exists...yet</h1>);
+            items.push(<h1 key={"loading"}>This category does not exists...yet</h1>);
         }
         
         return(

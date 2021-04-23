@@ -13,6 +13,7 @@ function NavbarComp(){
                     <Nav.Link href="/category/nba">NBA</Nav.Link>
                     <Nav.Link href="/category/nfl">NFL</Nav.Link>
                     <Nav.Link href="/category/tv">TV</Nav.Link>
+                    <Nav.Link href="/category/books">Books</Nav.Link>
                     <Nav.Link href="/category/movies">Movies</Nav.Link>
                     <Nav.Link href="/category/anime">Anime</Nav.Link>
                     <Nav.Link href="/category/gaming">Gaming</Nav.Link>
