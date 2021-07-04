@@ -57,7 +57,7 @@ class Post extends React.Component{
                     <hr/>
                     <img
                         className="card-img-top"
-                        src={(this.tryRequire('../static/'+this.state.posts.imageUrl))?require('../static/'+this.state.posts.imageUrl):require('../static/backup.png')}
+                        src={(this.tryRequire('../img/'+this.state.posts.imageUrl))?require('../img/'+this.state.posts.imageUrl):require('../img/backup.png')}
                         alt="slide"
                     />
                     <h5 style={{textAlign:"center", marginTop:"1rem"}}>{unescape(this.state.posts.description)}</h5>

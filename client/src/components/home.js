@@ -57,7 +57,7 @@ class Home extends React.Component{
                 <Link to={`/post/${this.state.posts[i]._id}`}>
                     <img
                         className="card-img-top"
-                        src={(this.tryRequire('../static/'+this.state.posts.imageUrl))?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.png')}
+                        src={(this.tryRequire('../img/'+this.state.posts.imageUrl))?require('../img/'+this.state.posts[i].imageUrl):require('../img/backup.png')}
                         alt="slide"
                     />
                 </Link>
