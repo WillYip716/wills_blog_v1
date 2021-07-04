@@ -14,6 +14,14 @@ class Post extends React.Component{
         };
     }
 
+    tryRequire = (path) => {
+        try {
+            return require(`${path}`);
+        } catch (err) {
+            return null;
+        }
+    };
+
     componentDidMount() {
         axios.get('/post/'+this.props.match.params.id)
           .then(res => {
@@ -49,7 +57,7 @@ class Post extends React.Component{
                     <hr/>
                     <img
                         className="card-img-top"
-                        src={(this.state.posts.imageUrl)?require('../static/'+this.state.posts.imageUrl):require('../static/backup.png')}
+                        src={(this.tryRequire('../static/'+this.state.posts.imageUrl))?require('../static/'+this.state.posts.imageUrl):require('../static/backup.png')}
                         alt="slide"
                     />
                     <h5 style={{textAlign:"center", marginTop:"1rem"}}>{unescape(this.state.posts.description)}</h5>

@@ -18,6 +18,14 @@ class Home extends React.Component{
         };
     }
 
+    tryRequire = (path) => {
+        try {
+            return require(`${path}`);
+        } catch (err) {
+            return null;
+        }
+    };
+
     componentDidMount() {
         var params = queryString.parse(this.props.location.search);
         var queryVar = "";
@@ -49,7 +57,7 @@ class Home extends React.Component{
                 <Link to={`/post/${this.state.posts[i]._id}`}>
                     <img
                         className="card-img-top"
-                        src={(this.state.posts[i].imageUrl)?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.png')}
+                        src={(this.tryRequire('../static/'+this.state.posts.imageUrl))?require('../static/'+this.state.posts[i].imageUrl):require('../static/backup.png')}
                         alt="slide"
                     />
                 </Link>
