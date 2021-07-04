@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', indexRouter);
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGODB_URI||process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true })
 .then(() => console.log("Mongo Connection successful"))
